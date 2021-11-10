@@ -1,0 +1,11 @@
+<div class="container">
+  <h2>Add a plant to <%= @garden.name %></h2>
+
+  <%# <%= simple_form_for [@parent, @child] do |f| %>
+  <%= simple_form_for [@garden, @plant] do |f| %>
+    <%= f.input :name %>
+    <%= f.input :color, collection: %w[ green yellow blue purple ] %>
+    <%= f.input :photo_url %>
+    <%= f.submit 'Create a plant', class: 'btn btn-primary' %>
+  <% end %>
+</div>

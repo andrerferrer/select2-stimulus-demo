@@ -1,14 +1,33 @@
-<p id="notice"><%= notice %></p>
+<div class="banner"
+     style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),
+     url(<%= @garden.banner_url %>);">
+  <div class="container">
+    <h1 class='text-center'><%= @garden.name %></h1>
 
-<p>
-  <strong>Name:</strong>
-  <%= @garden.name %>
-</p>
+    <div class="w-50 m-auto text-end">
+      <%= link_to 'Add a plant', new_garden_plant_path(@garden), class: 'text-white btn btn-primary' %> |
+      <%= link_to 'Edit', edit_garden_path(@garden), class: 'btn btn-secondary' %> |
+      <%= link_to 'Back', gardens_path, class: 'btn btn-secondary' %>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Banner url:</strong>
-  <%= @garden.banner_url %>
-</p>
+<div class="cards mt-3 mx-3">
+  <% @garden.plants.each do |plant| %>
+    <div class="card-trip">
+      <img src="<%= plant.photo_url %>" />
+      <%= link_to '✖',
+                    plant_path(plant.id),
+                    method: :delete,
+                    class: 'btn btn-danger delete-btn',
+                    data: { confirm: 'Are you sure?' } %>
+      <div class="card-trip-infos">
+        <div>
+          <h2><%= plant.name %></h2>
+        </div>
+        <h2 class="card-trip-pricing"> <%= plant.color %> </h2>
 
-<%= link_to 'Edit', edit_garden_path(@garden) %> |
-<%= link_to 'Back', gardens_path %>
+      </div>
+    </div>
+  <% end %>
+</div>
