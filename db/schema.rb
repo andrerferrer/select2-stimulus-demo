@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2021_11_11_161227) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "gardens", force: :cascade do |t|
     t.string "name"
     t.string "banner_url"
@@ -20,8 +23,8 @@ ActiveRecord::Schema.define(version: 2021_11_11_161227) do
   end
 
   create_table "plant_tags", force: :cascade do |t|
-    t.integer "plant_id", null: false
-    t.integer "tag_id", null: false
+    t.bigint "plant_id", null: false
+    t.bigint "tag_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["plant_id"], name: "index_plant_tags_on_plant_id"
@@ -31,7 +34,7 @@ ActiveRecord::Schema.define(version: 2021_11_11_161227) do
   create_table "plants", force: :cascade do |t|
     t.string "name"
     t.string "color"
-    t.integer "garden_id", null: false
+    t.bigint "garden_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "photo_url"
