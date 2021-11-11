@@ -25,9 +25,20 @@
         <div>
           <h2><%= plant.name %></h2>
         </div>
-        <h2 class="card-trip-pricing"> <%= plant.color %> </h2>
+        <h2 class="card-trip-pricing">
+          <%= link_to '+Tag', new_plant_plant_tag_path(plant.id) %>
+        </h2>
 
       </div>
+
+      <div class="card-tags">
+        <% plant.tags.each do |tag| %>
+          <span>
+            <%= tag.name %>
+          </span>
+        <% end %>
+      </div>
+
     </div>
   <% end %>
 </div>

@@ -1,0 +1,10 @@
+<div class="container">
+  <h2>Add a Tag to <%= @plant.name %></h2>
+
+  <%# <%= simple_form_for([@parent, @child]) do |f| %>
+  <%= simple_form_for([@plant, @plant_tag]) do |f| %>
+    <%# f.input :tag, collection: Tag.all %>
+    <%= f.association :tag, input_html: { multiple: true, data: { controller: 'select2' } }, include_hidden: false %>
+    <%= f.submit %>
+  <% end %>
+</div>
