@@ -11,6 +11,11 @@ This is a demo to show-case how to implement an easy autocomplete in rails using
 rails webpacker:install:stimulus
 ```
 
+- install the select2 plugin
+```js
+  yarn add jquery select2
+```
+
 - create a new controller with the select2 logic
 ```js
 // app/javascript/controllers/select2_controller.js
