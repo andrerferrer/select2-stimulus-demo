@@ -28,12 +28,12 @@ export default class extends Controller {
 }
 ```
 
-- add the data-controller to the input
+- add the `data-controller='select2'` to the input
 ```erb
   <%= simple_form_for([@plant, @plant_tag]) do |f| %>
-    <%# f.input :tag, collection: Tag.all %>
-    <%= f.association :tag, input_html: { multiple: true, data: { controller: 'select2' } }, include_hidden: false %>
-    <%= f.submit %>
+
+    <%= f.association :tag, input_html: { data: { controller: 'select2' } } %>
+
   <% end %>
 ```
 
