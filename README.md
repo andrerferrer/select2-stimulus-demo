@@ -56,6 +56,14 @@ rails s
 # now you can go to http://localhost:3000/plants/1/plant_tags/new and see it in action
 ```
 
+### TROUBLESHOOTING
+
+If the css is not loading for select2, make sure you add this line in your application.html.erb:
+```erb
+<%= javascript_style_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
+```
+⤴️This is telling your app that it needs to import the css files from your `application.js` file.
+
 And we're good to go
 
 Good Luck 🍀 and Have Fun 🤓
